@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RedirectedStepper · CHI 2025</title>
+  <meta name="description" content="RedirectedStepper turns a mini exercise stepper into an endless staircase in VR: step in place, climb anywhere. CHI 2025.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F3F8FE">
+
+  <!-- Social preview. After deploying, replace the og:image / twitter:image values with absolute URLs,
+       e.g. https://<username>.github.io/<repo>/assets/img/og-image.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RedirectedStepper · CHI 2025">
+  <meta property="og:description" content="Climb an endless staircase in VR on a mini exercise stepper.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/img/og-image.jpg">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="RedirectedStepper, back to top">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h5v-5h5v-5h5V5h3"/></svg>
+      RedirectedStepper
+    </a>
+    <a class="topbar-link" href="https://doi.org/10.1145/3706598.3713313" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-head">
+      <p class="venue"><span class="venue-dot" aria-hidden="true"></span>CHI 2025 · Yokohama, Japan</p>
+      <h1 class="title">Redirected<span class="title-accent">Stepper</span></h1>
+      <p class="subtitle">Exploring Walking-In-Place Locomotion in VR Using a Mini Stepper for Ascents</p>
+
+      <ul class="authors">
+        <li><a href="https://orcid.org/0000-0002-2546-5651" target="_blank" rel="noopener">Quang-Tri Le</a><sup>1*</sup></li>
+        <li><a href="https://orcid.org/0000-0002-8480-8773" target="_blank" rel="noopener">Duc-Nham Huynh</a><sup>1*</sup></li>
+        <li><a href="https://orcid.org/0000-0003-1305-780X" target="_blank" rel="noopener">Tanh Quang Tran</a><sup>2,1</sup></li>
+        <li><a href="https://orcid.org/0000-0002-9562-5147" target="_blank" rel="noopener">Morten Fjeld</a><sup>3,4</sup></li>
+        <li><a href="https://orcid.org/0000-0002-7110-5024" target="_blank" rel="noopener">Wolfgang Stuerzlinger</a><sup>5</sup></li>
+        <li><a href="https://orcid.org/0009-0008-5446-8289" target="_blank" rel="noopener">Markus Zank</a><sup>6</sup></li>
+        <li><a href="https://orcid.org/0000-0003-3046-3041" target="_blank" rel="noopener">Minh-Triet Tran</a><sup>1</sup></li>
+        <li><a href="https://orcid.org/0000-0002-8297-5666" target="_blank" rel="noopener">Khanh-Duy Le</a><sup>1†</sup></li>
+      </ul>
+      <ul class="affiliations">
+        <li><sup>1</sup>VNU-HCM University of Science</li>
+        <li><sup>2</sup>University of Otago</li>
+        <li><sup>3</sup>University of Bergen</li>
+        <li><sup>4</sup>Chalmers University of Technology</li>
+        <li><sup>5</sup>Simon Fraser University</li>
+        <li><sup>6</sup>Lucerne University of Applied Sciences and Arts</li>
+      </ul>
+      <p class="notes"><sup>*</sup>Equal contribution &nbsp;·&nbsp; <sup>†</sup>Corresponding author</p>
+
+      <nav class="quick-links" aria-label="Paper resources">
+        <a href="https://doi.org/10.1145/3706598.3713313" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>Paper
+        </a>
+        <a href="#video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" class="fill"/></svg>Video
+        </a>
+        <a href="#cite">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7H6a1 1 0 0 0-1 1v4h4v-4M18 7h-3a1 1 0 0 0-1 1v4h4V8M9 12c0 3-1 4.5-4 5M18 12c0 3-1 4.5-4 5"/></svg>Cite
+        </a>
+      </nav>
+    </div>
+
+    <figure class="wrap hero-media" data-reveal>
+      <div class="frame frame-hero">
+        <video class="loop" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg"
+               aria-label="A VR avatar climbs a staircase while the user steps in place on the mini stepper (inset)">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <span class="chip chip-on-media">Virtual world</span>
+      </div>
+      <figcaption>Stepping in place on the mini stepper <span class="muted">(inset)</span> climbs a staircase in VR. Shown from a third-person camera; in the headset, you see it first-person.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ───────────── Intro ───────────── -->
+  <section class="section intro">
+    <div class="wrap narrow" data-reveal>
+      <p class="lede">Stairs, towers, mountains: climbing is everywhere in virtual worlds. Yet in VR we usually glide or teleport upward, or need bulky hardware and a large room to truly walk.</p>
+      <p class="lede lede-strong"><strong>RedirectedStepper</strong> lets you step your way up on a compact mini stepper, without ever leaving the spot.</p>
+    </div>
+  </section>
+
+  <!-- ───────────── In action ───────────── -->
+  <section class="section" aria-labelledby="h-action">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">In action</p>
+        <h2 id="h-action">Your feet stay put.<br>You keep climbing.</h2>
+      </header>
+      <div class="pair">
+        <figure class="card media-card" data-reveal>
+          <div class="frame">
+            <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/device-poster.jpg"
+                   aria-label="Close-up of a foot pressing and lifting the stepper pedal">
+              <source src="assets/video/device.mp4" type="video/mp4">
+            </video>
+            <span class="chip chip-on-media">In the room</span>
+          </div>
+          <figcaption><strong>Step in place.</strong> Press one pedal down, lift the other, just like jogging on the spot.</figcaption>
+        </figure>
+        <figure class="card media-card" data-reveal>
+          <div class="frame">
+            <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/fpv-poster.jpg"
+                   aria-label="First-person view climbing a long staircase in VR, with the real user in an inset">
+              <source src="assets/video/fpv.mp4" type="video/mp4">
+            </video>
+            <span class="chip chip-on-media">In the headset</span>
+          </div>
+          <figcaption><strong>Climb in VR.</strong> Every step on the pedals becomes a step up the stairs.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── How it works (animated illustration) ───────────── -->
+  <section class="section tinted" aria-labelledby="h-how">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2 id="h-how">One step, redirected.</h2>
+        <p class="section-sub">On the stepper, your foot only moves up and down. In VR, that same motion is bent into a natural stair step: lift, reach forward, land. Your virtual foot touches the next stair the moment the pedal reaches its top. Then you press down, and you rise.</p>
+      </header>
+
+      <div class="stage" id="stage" data-reveal>
+        <p class="sr-only">Animated illustration. Left: a foot on the stepper pedal rises and falls in place. Right: the same motion shown in VR as a foot arcing up and forward onto the next stair, after which the view rises one step, repeating endlessly.</p>
+
+        <div class="stage-panel">
+          <span class="chip">Real world</span>
+          <svg class="stage-svg" viewBox="0 0 400 300" aria-hidden="true">
+            <rect class="room" x="0" y="0" width="400" height="262"/>
+            <rect class="ground" x="0" y="262" width="400" height="38"/>
+            <line class="floor" x1="0" y1="262" x2="400" y2="262"/>
+            <g class="gauge">
+              <rect class="gauge-track" x="34" y="150" width="6" height="90" rx="3"/>
+              <rect class="gauge-fill" id="rGauge" x="34" y="240" width="6" height="0" rx="3"/>
+              <text class="gauge-label" x="37" y="138" text-anchor="middle">lift</text>
+            </g>
+            <rect class="block" x="98" y="246" width="50" height="16" rx="3"/>
+            <path class="frame-body" d="M156 262 L172 240 L326 240 L340 262 Z"/>
+            <line class="damper" x1="196" y1="252" x2="298" y2="232"/>
+            <polyline class="spring" id="rSpring" points=""/>
+            <g id="rPedal" transform="translate(316 222)">
+              <rect class="pedal" x="-238" y="-6" width="252" height="12" rx="5"/>
+            </g>
+            <circle class="hinge" cx="316" cy="222" r="7"/>
+            <g id="rShoe" class="shoe shoe-real">
+              <path class="shoe-upper" d="M-90 -16 C-93 -30 -92 -46 -84 -54 C-74 -60 -52 -58 -36 -56 C-30 -64 -22 -68 -16 -66 C0 -54 20 -42 46 -34 C70 -28 88 -26 95 -16 Z"/>
+              <path class="shoe-sole" d="M-88 0 H84 C92 0 97 -5 96 -10 L95 -16 H-90 C-93 -12 -93 -4 -88 0 Z"/>
+              <path class="shoe-stripe" d="M-66 -30 C-36 -24 4 -30 36 -36"/>
+              <path class="shoe-lace" d="M-12 -58 l8 6 M0 -50 l8 6 M12 -43 l8 6"/>
+            </g>
+          </svg>
+          <p class="stage-caption" aria-hidden="true"><span data-cap="real"></span></p>
+        </div>
+
+        <div class="stage-link" aria-hidden="true">
+          <span class="stage-phase" id="stagePhase">Lift</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+
+        <div class="stage-panel stage-panel-virtual">
+          <span class="chip chip-sky">Virtual world</span>
+          <span class="step-count" aria-hidden="true">step <b id="stepCount">1</b></span>
+          <svg class="stage-svg" viewBox="0 0 400 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E4F2FF"/>
+                <stop offset="1" stop-color="#FFFFFF"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="400" height="300" fill="url(#skyGrad)"/>
+            <g class="clouds" id="vClouds">
+              <ellipse cx="80" cy="60" rx="34" ry="10"/>
+              <ellipse cx="300" cy="40" rx="26" ry="8"/>
+            </g>
+            <path class="stairs" id="vStairs" d=""/>
+            <path class="stairs-edge" id="vEdges" d=""/>
+            <line class="target" id="vTarget" x1="0" y1="0" x2="0" y2="0"/>
+            <path class="trail" id="vTrail" d=""/>
+            <g id="vShoe" class="shoe shoe-virtual">
+              <path class="shoe-upper" d="M-90 -16 C-93 -30 -92 -46 -84 -54 C-74 -60 -52 -58 -36 -56 C-30 -64 -22 -68 -16 -66 C0 -54 20 -42 46 -34 C70 -28 88 -26 95 -16 Z"/>
+              <path class="shoe-sole" d="M-88 0 H84 C92 0 97 -5 96 -10 L95 -16 H-90 C-93 -12 -93 -4 -88 0 Z"/>
+              <path class="shoe-stripe" d="M-66 -30 C-36 -24 4 -30 36 -36"/>
+              <path class="shoe-lace" d="M-12 -58 l8 6 M0 -50 l8 6 M12 -43 l8 6"/>
+            </g>
+          </svg>
+          <p class="stage-caption" aria-hidden="true"><span data-cap="virtual"></span></p>
+        </div>
+      </div>
+      <p class="stage-note" data-reveal>Illustration, one foot shown. The real system senses each pedal's tilt about 80 times per second and maps it to your virtual foot and viewpoint.</p>
+    </div>
+  </section>
+
+  <!-- ───────────── Device ───────────── -->
+  <section class="section" aria-labelledby="h-device">
+    <div class="wrap device">
+      <div class="device-visual" data-reveal>
+        <div class="device-halo" aria-hidden="true"></div>
+        <img src="assets/img/device.webp" width="1200" height="898" loading="lazy"
+             alt="The RedirectedStepper device: a mini exercise stepper with two wide black pedals resting on compression springs and white support blocks.">
+      </div>
+      <div class="device-copy" data-reveal>
+        <p class="eyebrow">The device</p>
+        <h2 id="h-device">A mini stepper, rebuilt for climbing.</h2>
+        <ul class="features">
+          <li>
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="2"/></svg></span>
+            <div><h3>Wide, steady pedals</h3><p>Larger 34 × 17 cm pedals help you feel planted, even when the headset hides your feet.</p></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 20h10M8 7l8 2.5L8 12l8 2.5L8 17"/></svg></span>
+            <div><h3>Push-back springs</h3><p>Compression springs resist every press, so lifting yourself feels like taking a real step.</p></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17 L20 9"/><circle cx="4" cy="17" r="1.6" class="fill"/><path d="M15 17a6 6 0 0 0-1.2-3.6"/></svg></span>
+            <div><h3>Senses every tilt</h3><p>A motion sensor under each pedal streams its tilt wirelessly to VR, about 80 times a second.</p></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></span>
+            <div><h3>Small footprint</h3><p>44 × 40 × 23 cm and 7.4 kg. No treadmill, no walking space.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Three climbs ───────────── -->
+  <section class="section tinted" aria-labelledby="h-worlds">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Three worlds</p>
+        <h2 id="h-worlds">Straight, spiral, and sloped.</h2>
+        <p class="section-sub">We compared RedirectedStepper with walking in place tracked by a Kinect camera, with twelve new participants in each world, 36 in total.</p>
+      </header>
+      <div class="trio">
+        <figure class="card media-card" data-reveal>
+          <div class="frame">
+            <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/stairs-poster.jpg"
+                   aria-label="Side view of the avatar climbing a straight staircase, with the user on the stepper in an inset">
+              <source src="assets/video/stairs.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>
+            <h3>Straight staircase</h3>
+            <p>A long flight of 500 steps. Pushing down on the pedals made the climb feel earned.</p>
+          </figcaption>
+        </figure>
+        <figure class="card media-card" data-reveal>
+          <div class="frame">
+            <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/spiral-poster.jpg"
+                   aria-label="The avatar climbing a spiral staircase, with the user on the stepper in an inset">
+              <source src="assets/video/spiral.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>
+            <h3>Spiral staircase</h3>
+            <p>Turning all the way up while facing straight ahead in the room caused no discomfort. Some never noticed the turn.</p>
+          </figcaption>
+        </figure>
+        <figure class="card media-card" data-reveal>
+          <div class="frame">
+            <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/slope-poster.jpg"
+                   aria-label="The avatar walking up a steep hill slope, with the user on the stepper in an inset">
+              <source src="assets/video/slope.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>
+            <h3>Hill slope</h3>
+            <p>A continuous 30° climb. It worked, but the tilting pedals felt less natural here than on stairs.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SnowRun ───────────── -->
+  <section class="section" aria-labelledby="h-snowrun">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Application</p>
+        <h2 id="h-snowrun">SnowRun</h2>
+        <p class="section-sub">A VR exergame built on what we learned. Race up a snowy mountain stairway as fast as you can. Along the way, pick up sticks, throw them at snowmen, and clear obstacles. Each mini-mission doubles as a short rest for your legs.</p>
+      </header>
+      <figure class="snow-hero" data-reveal>
+        <div class="frame frame-wide">
+          <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/img/snowrun-poster.jpg"
+                 aria-label="SnowRun gameplay: climbing a snowy stairway, throwing sticks at snowmen, with the player on the stepper in an inset">
+            <source src="assets/video/snowrun.mp4" type="video/mp4">
+          </video>
+          <span class="chip chip-on-media">Gameplay</span>
+        </div>
+      </figure>
+      <ul class="snow-stills">
+        <li data-reveal><img src="assets/img/snowrun-pick.jpg" width="960" height="540" loading="lazy" alt="Reaching up to pick a stick from a tree in SnowRun"><span>Pick up sticks</span></li>
+        <li data-reveal><img src="assets/img/snowrun-throw.jpg" width="960" height="540" loading="lazy" alt="Throwing a stick at snowmen beside the stairway"><span>Hit the snowmen</span></li>
+        <li data-reveal><img src="assets/img/snowrun-clear.jpg" width="960" height="540" loading="lazy" alt="Removing a fallen branch blocking the stairs"><span>Clear the path</span></li>
+      </ul>
+      <p class="snow-note" data-reveal>Eight players tried it for about 11 minutes each. They turned, threw, and bent down while standing on the stepper, and none raised safety concerns.</p>
+    </div>
+  </section>
+
+  <!-- ───────────── Findings ───────────── -->
+  <section class="section tinted" aria-labelledby="h-findings">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">What we learned</p>
+        <h2 id="h-findings">Climbing you can feel.</h2>
+      </header>
+      <dl class="stats" data-reveal>
+        <div><dt>3</dt><dd>user studies</dd></div>
+        <div><dt>36</dt><dd>participants</dd></div>
+        <div><dt>500</dt><dd>steps per climb</dd></div>
+        <div><dt>1</dt><dd>exergame</dd></div>
+      </dl>
+      <blockquote class="quote" data-reveal>
+        <p>“I felt like I had actually climbed the stairs because I pushed my foot down.”</p>
+        <cite>Participant 12, straight staircase</cite>
+      </blockquote>
+      <div class="takeaways">
+        <article class="card takeaway" data-reveal>
+          <span class="takeaway-num">01</span>
+          <h3>Feels like real climbing</h3>
+          <p>Pressing the pedals gave the effort of a real ascent. RedirectedStepper made walking up stairs feel more realistic than walking in place on flat ground.</p>
+        </article>
+        <article class="card takeaway" data-reveal>
+          <span class="takeaway-num">02</span>
+          <h3>Made for stairs</h3>
+          <p>Discrete steps felt natural. On continuous slopes, the direction of the pedals' tilt was less convincing.</p>
+        </article>
+        <article class="card takeaway" data-reveal>
+          <span class="takeaway-num">03</span>
+          <h3>A real workout</h3>
+          <p>Climbing takes effort, and participants sweated more. Long climbs should build in rest, as SnowRun does.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Full video ───────────── -->
+  <section class="section" id="video" aria-labelledby="h-video">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Video</p>
+        <h2 id="h-video">Watch the full story.</h2>
+      </header>
+      <!-- To use YouTube instead of the local file, put the video ID in data-youtube (e.g. data-youtube="dQw4w9WgXcQ"). -->
+      <figure class="full-video" data-youtube="" data-reveal>
+        <div class="frame frame-wide">
+          <video controls playsinline preload="none" poster="assets/img/full-poster.jpg">
+            <source src="assets/video/redirectedstepper-full.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/video/redirectedstepper-full.mp4">Download it instead.</a>
+          </video>
+        </div>
+        <figcaption>4 minutes, with narration and captions.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────────── Paper & citation ───────────── -->
+  <section class="section tinted" id="cite" aria-labelledby="h-paper">
+    <div class="wrap paper">
+      <a class="paper-thumb" href="https://doi.org/10.1145/3706598.3713313" target="_blank" rel="noopener" data-reveal>
+        <img src="assets/img/paper-thumb.jpg" width="640" height="828" loading="lazy" alt="First page of the RedirectedStepper paper">
+      </a>
+      <div class="paper-copy" data-reveal>
+        <p class="eyebrow">Paper</p>
+        <h2 id="h-paper">RedirectedStepper: Exploring Walking-In-Place Locomotion in VR Using a Mini Stepper for Ascents</h2>
+        <p class="paper-venue">CHI ’25 · Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems · Yokohama, Japan</p>
+        <p class="paper-links">
+          <a href="https://doi.org/10.1145/3706598.3713313" target="_blank" rel="noopener">ACM Digital Library <span aria-hidden="true">↗</span></a>
+          <a href="https://vvise.iat.sfu.ca/user/data/papers/redirectedstepper.pdf" target="_blank" rel="noopener">Author PDF <span aria-hidden="true">↗</span></a>
+        </p>
+
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p>Walking on inclined surfaces is common in some Virtual Reality (VR) scenarios, for instance, when moving between floors of a building, climbing a tower, or ascending a virtual mountain. Existing approaches enabling realistic walking experiences in such settings typically require the user to use bulky walking-in-place hardware or to walk in a physical area. Addressing this challenge, we present RedirectedStepper, a locomotion technique leveraging a novel device based on a mini exercise stepper to provide realistic VR staircase walking experiences by alternating the tilt of the two stepper pedals. RedirectedStepper employs a new exponential mapping function to visually morph the user’s real foot motion to a corresponding curved path in the virtual environment (VE). Combining this stepper and the visual mapping function provides an in-place locomotion technique allowing users to virtually ascend an infinite staircase or slope while walking-in-place (WIP). We conducted three within-subject user studies (n=36) comparing RedirectedStepper with a WIP locomotion technique using the Kinect. Our studies indicate that RedirectedStepper improves the users’ sense of realism in walking on staircases in VR. Based on a set of design implications derived from the user studies, we developed SnowRun, a VR exergame application, demonstrating the use of the RedirectedStepper concept.</p>
+        </details>
+
+        <div class="bibtex">
+          <div class="bibtex-head">
+            <span>BibTeX</span>
+            <button type="button" class="copy" id="copyBib" aria-label="Copy BibTeX to clipboard">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+<pre id="bib"><code>@inproceedings{le2025redirectedstepper,
+  title     = {RedirectedStepper: Exploring Walking-In-Place Locomotion
+               in VR Using a Mini Stepper for Ascents},
+  author    = {Le, Quang-Tri and Huynh, Duc-Nham and Tran, Tanh Quang
+               and Fjeld, Morten and Stuerzlinger, Wolfgang and Zank, Markus
+               and Tran, Minh-Triet and Le, Khanh-Duy},
+  booktitle = {Proceedings of the 2025 CHI Conference on Human Factors
+               in Computing Systems},
+  series    = {CHI '25},
+  year      = {2025},
+  location  = {Yokohama, Japan},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  isbn      = {979-8-4007-1394-1},
+  numpages  = {17},
+  doi       = {10.1145/3706598.3713313},
+  url       = {https://doi.org/10.1145/3706598.3713313}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>This research is funded by ONR Grant N629092412109. We thank Dinh-Thuan Duong-Le for insightful feedback during the development of the prototype.</p>
+    <p class="muted">© 2025 The authors. Publication rights licensed to ACM.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
